@@ -84,7 +84,8 @@ button:active {
 }
 
 .animate {
-  transform: translateX(-150px);
+  /* transform: translateX(-150px); */
+  animation: slide-fade 0.3s ease-out;
 }
 
 @keyframes slide-fade {
@@ -100,5 +101,4 @@ button:active {
     transform: translateX(-150px) scale(1)
   }
 }
-
 </style>
