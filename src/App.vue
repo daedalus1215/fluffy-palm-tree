@@ -1,30 +1,72 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<template>
+  <div class="container">
+    <div class="block"></div>
+    <button>Animate</button>
+  </div>
+  <base-modal @close="hideDialog" v-if="dialogIsVisible">
+    <p>This is a test dialog!</p>
+    <button @click="hideDialog">Close it!</button>
+  </base-modal>
+  <div class="container">
+    <button @click="showDialog">Show Dialog</button>
+  </div>
+</template>  
+
+<script>
+export default {
+  data() {
+    return { dialogIsVisible: false };
+  },
+  methods: {
+    showDialog() {
+      this.dialogIsVisible = true;
+    },
+    hideDialog() {
+      this.dialogIsVisible = false;
+    },
+  },
+};
 </script>
 
-<template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
-</template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+* {
+  box-sizing: border-box;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+html {
+  font-family: sans-serif;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+body {
+  margin: 0;
+}
+button {
+  font: inherit;
+  padding: 0.5rem 2rem;
+  border: 1px solid #810032;
+  border-radius: 30px;
+  background-color: #810032;
+  color: white;
+  cursor: pointer;
+}
+button:hover,
+button:active {
+  background-color: #a80b48;
+  border-color: #a80b48;
+}
+.block {
+  width: 8rem;
+  height: 8rem;
+  background-color: #290033;
+  margin-bottom: 2rem;
+}
+.container {
+  max-width: 40rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  border: 2px solid #ccc;
+  border-radius: 12px;
 }
 </style>
